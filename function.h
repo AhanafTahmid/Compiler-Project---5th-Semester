@@ -9,7 +9,6 @@ using namespace std;
 //Below are the functions that will run in the application
 //function age pore likhsi bole age theke ekhane define kore disi
 
-//easy() and easy2() are the games
 //void drawwwwwwww();
 
 void get_ans();
@@ -23,11 +22,8 @@ void about_us();//it is the about us page
 void exit();
 void menu();
 void info_start();
-void move_start();
 void Header();
 void Footer();
-void move_ahead();
-
 
 
 void frame()
@@ -71,7 +67,6 @@ vector<string> readDataFromFile(char* fileName)
 
 
 void type_till_go(){}
-//This is the game
 // void type_till_go()
 // {
 //     cleardevice();
@@ -274,63 +269,8 @@ void about_us()
 
 //#######################################################################################
 //#######################################################################################
-//For game 2
-void Easy2()
-{
-    //loading();
-    cleardevice();
-    frame();
-    Footer();
-    new Field(0, 0, 800, 50, MAGENTA,WHITE, "Hard Lavels");
 
 
-    Button word_one_mnt(200, 130, 600, 230, CYAN, "Type Word by Word");
-    //Button word_two_mnt(200, 230, 600, 330, MAGENTA, "Label 2");
-    //Button word_five_mnt(200, 330, 600, 430, CYAN, "Label 3");
-    Button back(15, 425, 130, 465, BLUE, "BACK");
-
-    while(true)
-    {
-        word_one_mnt.hover(GREEN);
-        //word_two_mnt.hover(GREEN);
-        //word_five_mnt.hover(GREEN);
-        back.hover(GREEN);
-
-
-
-        if(GetAsyncKeyState(VK_LBUTTON) & (0x8000 != 0))
-        {
-            if(word_one_mnt.cursor())  type_till_go();
-            else if(back.cursor())move_ahead();
-        }
-        if(kbhit()) getch();//kbhit determines if a key has been pressed or not
-    }
-}
-
-
-void move_ahead()
-{
-    cleardevice();
-     frame();
-     Header();
-     Footer();
-    //creating the parameterized object from ui.h
-    Button easy(200, 130, 600, 230, MAGENTA, "Check Sample: 55* ");
-    //Button hard(200, 250, 600, 350, MAGENTA, "  HARD");
-    Button back(15, 425, 130, 465, BLUE, "BACK");
-    while(true)
-    {
-        easy.hover(GREEN);
-        //hard.hover(GREEN);
-        back.hover(GREEN);
-        if(GetAsyncKeyState(VK_LBUTTON) & (0x8000 != 0))
-        {
-            if(easy.cursor()) Easy2();
-            //else if(hard.cursor())Hard();
-            else if(back.cursor())menu();
-        }
-    }
-}
 
 void exit()
 {
@@ -356,7 +296,6 @@ void exit()
 }
 void menu()
 {
-
     setbkcolor(CYAN);
     cleardevice();
     settextstyle(6, 0, 4);
@@ -366,26 +305,21 @@ void menu()
 
     ////left,top,right,bottom
 
-     // First row buttons for games
-    //Button info(50, 90, 300, 140, MAGENTA, "Game 1");
     Button info(125, 90, 395, 150, MAGENTA, "Info + Rules");
-    Button move(405, 90, 675, 150, BLUE, "Move Ahead?");
-    Button game3(125, 160, 395, 220, MAGENTA, "Lexer");
-    Button reginput(405, 160, 675, 220, BLUE, "Regex box");
+    Button astatment(405, 90, 675, 150, MAGENTA, "Statement?");
 
-    // sescond row buttons
-    Button astatment(125, 230, 395, 290, MAGENTA, "Statement?");
-    Button ptree(405, 230, 675, 290, BLUE, "Parse Tree");
-    Button aboutMe(125, 300, 675, 360, MAGENTA, "About Us");
 
-    Button ext(125, 370, 675, 430, RED, "Exit");
+    Button reginput(125, 160, 395, 220, BLUE, "Regex box");    
+    Button ptree(405, 160, 675, 220, BLUE, "Parse Tree");
+
+    Button aboutMe(125, 240, 675, 300, MAGENTA, "About Us");
+    Button ext(125, 310, 675, 370, MAGENTA, "Exit");
+
 
     while(true)
     {
         //hovering over menu
         info.hover(GREEN);
-        move.hover(GREEN);
-        game3.hover(GREEN);
         reginput.hover(GREEN);
         astatment.hover(GREEN);
         aboutMe.hover(GREEN);
@@ -397,7 +331,6 @@ void menu()
         if(GetAsyncKeyState(VK_LBUTTON) & (0x8000 != 0))
         {
             if(info.cursor()) info_start();
-            else if(move.cursor())move_ahead();
             else if(reginput.cursor()) regex_input();
             else if(astatment.cursor()) ar_input();
             else if(ptree.cursor()) {drawwwwwwww();}
@@ -415,7 +348,7 @@ void login()
     cleardevice();
 
     settextstyle(6, 0, 4);
-    new Field(0,0,800,80,BLACK,WHITE,"WELCOME TO Lexer ");//left,top,right,bottom
+    new Field(0,0,800,80,BLACK,WHITE,"WELCOME");//left,top,right,bottom
     settextstyle(8, 0, 2);//void settextstyle(int font, int direction, int font_size);
     new Field(100, 350, 350, 400, GREEN,WHITE, "ENTER YOUR NAME");//left,top,right,bottom
     Input userName;//creating input object from the ui.h
@@ -446,7 +379,6 @@ void login()
 //---------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------
-//addition
 
 //#############################################################################################
 //Arithmetic input
@@ -503,12 +435,7 @@ void ar_input() {
 
 
 
-
-
 ///////regex box 
-
-
-
 
 //#############################################################################################
 //Regex input
